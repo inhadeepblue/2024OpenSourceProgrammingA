@@ -21,13 +21,13 @@ func main() {
 	n, err := strconv.Atoi(i)
 
 	counts := 0
-	for j := 1; j <= n; j++ { // 1부터 입력된 수까지 반복
+	for j := 2; j < n; j++ { // 2부터 입력된 수 앞까지 반복
 		if n%j == 0 { // 약수면
 			counts++ // 나누어 떨어지는 횟수 카운트
 		}
 	}
 
-	if counts == 2 {
+	if counts == 0 {
 		fmt.Printf("%d는(은) 소수입니다", n)
 	} else {
 		fmt.Printf("%d는(은) 소수가 아닙니다", n)
