@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -25,7 +26,7 @@ func main() {
 	if n < 2 {
 		isPrime = false
 	} else {
-		for j := 2; j < n; j++ {
+		for j := 2; j <= int(math.Sqrt(float64(n))); j++ {
 			if n%j == 0 {
 				isPrime = false
 				break // 무의미한 반복을 제거
