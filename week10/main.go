@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -26,10 +25,11 @@ func main() {
 	if n < 2 {
 		isPrime = false
 	} else {
-		for j := 2; j <= int(math.Sqrt(float64(n))); j++ {
+		//for j := 2; j <= int(math.Sqrt(float64(n))); j++ {
+		for j := 2; j*j <= n; j++ {
 			if n%j == 0 {
 				isPrime = false
-				break // 무의미한 반복을 제거
+				break
 			}
 			fmt.Printf("%d ", j) // 반복문 횟수 확인용 코드
 		}
