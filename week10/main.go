@@ -24,14 +24,17 @@ func main() {
 
 	if n < 2 {
 		isPrime = false
+	} else if n == 2 {
+		isPrime = true
+	} else if n%2 == 0 {
+		isPrime = false
 	} else {
-		//for j := 2; j <= int(math.Sqrt(float64(n))); j++ {
-		for j := 2; j*j <= n; j++ {
+		for j := 3; j*j <= n; j = j + 2 {
 			if n%j == 0 {
 				isPrime = false
 				break
 			}
-			fmt.Printf("%d ", j) // 반복문 횟수 확인용 코드
+			fmt.Printf("%d ", j)
 		}
 	}
 	if isPrime {
