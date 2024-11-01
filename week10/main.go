@@ -9,6 +9,24 @@ import (
 	"strings"
 )
 
+func isPrime(n int) bool { // 함수화. 소수면 true 소수가 아니면 false 리턴
+	if n < 2 {
+		return false
+	} else if n == 2 {
+		return true
+	} else if n%2 == 0 {
+		return false
+	} else {
+		for j := 3; j*j <= n; j = j + 2 {
+			if n%j == 0 {
+				return false
+			}
+			//fmt.Printf("%d ", j)
+		}
+	}
+	return true
+}
+
 func main() {
 	fmt.Print("정수 입력 : ")
 	r := bufio.NewReader(os.Stdin)
@@ -20,24 +38,7 @@ func main() {
 	i = strings.TrimSpace(i)
 	n, err := strconv.Atoi(i)
 
-	var isPrime bool = true
-
-	if n < 2 {
-		isPrime = false
-	} else if n == 2 {
-		isPrime = true
-	} else if n%2 == 0 {
-		isPrime = false
-	} else {
-		for j := 3; j*j <= n; j = j + 2 {
-			if n%j == 0 {
-				isPrime = false
-				break
-			}
-			fmt.Printf("%d ", j)
-		}
-	}
-	if isPrime {
+	if isPrime(n) {
 		fmt.Printf("%d는(은) 소수입니다", n)
 	} else {
 		fmt.Printf("%d는(은) 소수가 아닙니다", n)
