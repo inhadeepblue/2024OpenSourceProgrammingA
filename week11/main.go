@@ -28,28 +28,31 @@ func isPrime(n int) bool {
 	return true
 }
 
-func main() {
-	fmt.Print("첫 번째 정수(시작 값) 입력 : ")
+func getInteger() (int, error) {
 	r := bufio.NewReader(os.Stdin)
 	a, err := r.ReadString('\n')
 	if err != nil {
-		log.Fatal(err)
+		//log.Fatal(err)
+		return 0, err
 	}
 
 	a = strings.TrimSpace(a)
-	n1, err := strconv.Atoi(a)
+	n, err := strconv.Atoi(a)
+	if err != nil {
+		return 0, err
+	}
+	return n, nil
+}
+
+func main() {
+	fmt.Print("첫 번째 정수(시작 값) 입력 : ")
+	n1, err := getInteger()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	fmt.Print("두 번째 정수(끝 값) 입력 : ")
-	b, err := r.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	b = strings.TrimSpace(b)
-	n2, err := strconv.Atoi(b)
+	n2, err := getInteger()
 	if err != nil {
 		log.Fatal(err)
 	}
