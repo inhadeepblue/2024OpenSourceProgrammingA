@@ -36,8 +36,8 @@ func main() {
 	// 	fmt.Println(i, dates[i])
 	// }
 
-	for i, v := range dates { // safe
-		fmt.Println(i, v)
+	for _, date := range dates { // safe
+		fmt.Println(date)
 	}
 }
 
