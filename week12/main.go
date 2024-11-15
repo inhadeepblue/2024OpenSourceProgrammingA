@@ -27,5 +27,11 @@ func main() {
 		time.Unix(1, 0),
 		time.Unix(1947920001, 0), // need comma
 	}
-	fmt.Println(dates[0], dates[1], dates[2])
+	//fmt.Println(dates[0], dates[1], dates[2])  // array elements
+	//fmt.Println(dates)  // array
+	//fmt.Printf("%#v\n", dates)  // array literal
+
+	for i := 0; i < len(dates); i++ {
+		fmt.Println(i, dates[i])
+	}
 }
