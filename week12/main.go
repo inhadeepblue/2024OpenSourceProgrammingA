@@ -31,7 +31,27 @@ func main() {
 	//fmt.Println(dates)  // array
 	//fmt.Printf("%#v\n", dates)  // array literal
 
-	for i := 0; i < len(dates); i++ {
-		fmt.Println(i, dates[i])
+	// for i := 0; i < len(dates); i++ { // safe
+	// 	//for i := 0; i <= 3; i++ {  // panic: runtime error: index out of range
+	// 	fmt.Println(i, dates[i])
+	// }
+
+	for i, v := range dates { // safe
+		fmt.Println(i, v)
 	}
 }
+
+/*
+import random
+
+numbers = [random.randint(1, 100) for _ in range(10)]
+print(numbers)
+
+
+#for i in range(len(numbers)):
+#for i in range(11):  # Runtime error
+#	print(numbers[i], end=' ')
+
+for number in numbers:  # safe
+	print(number, end=' ')
+*/
