@@ -2,42 +2,19 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/headfirstgo/keyboard"
 )
 
 func main() {
-	// var dates [3]time.Time
-	// dates[1] = time.Unix(1947920001, 0)
-	// fmt.Println(dates[1])
-
-	// var dates [3]time.Time = [3]time.Time{time.Unix(0, 0), time.Unix(1, 0), time.Unix(1947920001, 0)}
-	// fmt.Println(dates[0], dates[1], dates[2])
-
-	// dates := [3]time.Time{time.Unix(0, 0), time.Unix(1, 0), time.Unix(1947920001, 0)}
-	// fmt.Println(dates[0], dates[1], dates[2])
-
-	// dates := [3]time.Time{
-	// 	time.Unix(0, 0),
-	// 	time.Unix(1, 0),
-	// 	time.Unix(1947920001, 0)}
-	// fmt.Println(dates[0], dates[1], dates[2])
-
-	dates := [3]time.Time{
-		time.Unix(0, 0),
-		time.Unix(1, 0),
-		time.Unix(1947920001, 0), // need comma
+	var gpa [3]float64
+	// go get github.com/headfirstgo/keyboard
+	for i := 0; i < len(gpa); i++ {
+		fmt.Print("Input float number : ")
+		gpa[i], _ = keyboard.GetFloat()
 	}
-	//fmt.Println(dates[0], dates[1], dates[2])  // array elements
-	//fmt.Println(dates)  // array
-	//fmt.Printf("%#v\n", dates)  // array literal
-
-	// for i := 0; i < len(dates); i++ { // safe
-	// 	//for i := 0; i <= 3; i++ {  // panic: runtime error: index out of range
-	// 	fmt.Println(i, dates[i])
-	// }
-
-	for _, date := range dates { // safe
-		fmt.Println(date)
+	for index, value := range gpa {
+		fmt.Printf("%d %f\n", index, value)
 	}
 }
 
