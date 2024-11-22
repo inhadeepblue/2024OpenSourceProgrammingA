@@ -7,6 +7,9 @@ import (
 func main() {
 	var emptySlice []int
 	//emptySlice = make([]int, 5)
+	if len(emptySlice) == 0 {
+		emptySlice = append(emptySlice, 77)
+	}
 	fmt.Printf("%#v\n", emptySlice)
 
 	var gpa [5]float64 = [5]float64{3.5, 4.1, 4.5, 3.9, 4.23}
